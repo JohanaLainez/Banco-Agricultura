@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #f8dce4, #fff7f8);
+    color: #555;
+    min-height: 100vh;
+}
+
+/* Encabezado general */
+.header {
+    width: 100%;
+    padding: 30px 50px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 32px;
+    color: #666;
+    font-weight: bold;
+}
+
+/* Contenedor principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+/* Login */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+}
+
+.login-card {
+    background-color: #ffffff;
+    width: 320px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.login-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-card label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+
+/* Botones */
+.btn {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f3a4a9;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #e89096;
+}
+
+.login-card .btn {
+    align-self: center;
+    margin-top: 10px;
+    width: 140px;
+}
+
+/* Dashboard */
+.dashboard-title {
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.accounts-section {
+    margin-top: 30px;
+}
+
+.account-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.account-icon {
+    width: 32px;
+    height: 22px;
+    border: 3px solid #f3a4a9;
+    border-radius: 4px;
+}
+
+.actions {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+/* Formularios */
+.form-section {
+    width: 400px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.form-section h2 {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.option-button {
+    display: block;
+    width: 220px;
+    margin: 15px auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: white;
+    color: #555;
+}
+
+/* Tabla de movimientos */
+.table-container {
+    width: 600px;
+    margin-top: 30px;
+    background: #fff8fc;
+    border: 2px solid #d6c5dc;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Botón volver */
+.back-button {
+    position: fixed;
+    right: 60px;
+    bottom: 40px;
+}
