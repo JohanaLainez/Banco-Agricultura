@@ -1,25 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
-         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
-
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee           http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
     <servlet>
         <servlet-name>Jersey REST Service</servlet-name>
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
             <param-value>com.banco.resources</param-value>
         </init-param>
-
         <load-on-startup>1</load-on-startup>
     </servlet>
-
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.banco.controlador.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EmpleadoServlet</servlet-name>
+        <servlet-class>com.banco.controlador.EmpleadoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PrestamoServlet</servlet-name>
+        <servlet-class>com.banco.controlador.PrestamoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SucursalServlet</servlet-name>
+        <servlet-class>com.banco.controlador.SucursalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TransaccionServlet</servlet-name>
+        <servlet-class>com.banco.controlador.TransaccionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ClienteServlet</servlet-name>
+        <servlet-class>com.banco.controlador.ClienteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DependienteServlet</servlet-name>
+        <servlet-class>com.banco.controlador.DependienteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Jersey REST Service</servlet-name>
         <url-pattern>/webresources/*</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmpleadoServlet</servlet-name>
+        <url-pattern>/EmpleadoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PrestamoServlet</servlet-name>
+        <url-pattern>/PrestamoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SucursalServlet</servlet-name>
+        <url-pattern>/SucursalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TransaccionServlet</servlet-name>
+        <url-pattern>/TransaccionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClienteServlet</servlet-name>
+        <url-pattern>/ClienteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DependienteServlet</servlet-name>
+        <url-pattern>/DependienteServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

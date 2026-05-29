@@ -8,7 +8,7 @@ public class Conexion {
 
     private static final String URL = "jdbc:mysql://localhost:3306/banco_agricultura";
     private static final String USER = "root";
-    private static final String PASSWORD = "niko2025";
+    private static final String PASSWORD = "admin";
 
     public static Connection getConexion() {
         Connection conexion = null;
@@ -16,12 +16,13 @@ public class Conexion {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conexion = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Conexión exitosa a la base de datos");
+            System.out.println("¡CONEXIÓN EXITOSA DESDE JAVA A MYSQL!");
         } catch (ClassNotFoundException e) {
-            System.out.println("No se encontró el driver de MySQL");
+            System.out.println("CRÍTICO: No se encontró el driver JDBC de MySQL.");
             e.printStackTrace();
         } catch (SQLException e) {
-            System.out.println("Error al conectar con la base de datos");
+            System.out.println("CRÍTICO: Error de credenciales o el servidor MySQL está apagado.");
+            System.out.println("Mensaje de MySQL: " + e.getMessage());
             e.printStackTrace();
         }
 
