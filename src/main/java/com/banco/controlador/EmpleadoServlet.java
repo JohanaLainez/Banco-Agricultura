@@ -19,40 +19,40 @@ public class EmpleadoServlet extends HttpServlet {
         EmpleadoDAO empleadoDAO = new EmpleadoDAO();
         String accion = request.getParameter("accion");
 
-        // CASO A: VIENE DEL GERENTE DE SUCURSAL (REGISTRAR)
-        if (accion == null) {
-            String nombre = request.getParameter("txtNombre");
-            String dui = request.getParameter("txtDui");
-            String rol = request.getParameter("cmbRol");
-            String sucursal = request.getParameter("cmbSucursal");
-            String direccion = request.getParameter("txtDireccion");
-            String telefono = request.getParameter("txtTelefono");
-
+        // CASO A: VIENE DEL GERENTE DE SUCURSAL (NUEVA PANTALLA)
+        if ("registrar".equals(accion)) {
             Empleado nuevo = new Empleado();
-            nuevo.setNombre(nombre);
-            nuevo.setDui(dui);
-            nuevo.setRol(rol);
-            nuevo.setSucursal(sucursal);
-            nuevo.setDireccion(direccion);
-            nuevo.setTelefono(telefono);
-            // Valores provisionales obligatorios para la BD antes de ser aprobados
-            nuevo.setUsuario(dui); 
-            nuevo.setClave("123");
+            // Usamos los nombres exactos del HTML del dashboard_gerente.jsp
+            nuevo.setDui(request.getParameter("dui"));
+            nuevo.setNombre(request.getParameter("nombre"));
+            nuevo.setRol(request.getParameter("rol"));
+            nuevo.setSucursal(request.getParameter("sucursal"));
+            nuevo.setDireccion(request.getParameter("direccion"));
+            nuevo.setTelefono(request.getParameter("telefono"));
+            nuevo.setEstado("Pendiente"); // OBLIGATORIO: Va a espera
+            nuevo.setUsuario(request.getParameter("usuario"));
+            nuevo.setClave(request.getParameter("clave"));
 
+            // Llamamos al método de tu DAO original
             boolean OK = empleadoDAO.registrarEmpleado(nuevo);
+            
             if (OK) {
                 response.sendRedirect("dashboard_gerente.jsp?status=success");
             } else {
                 response.sendRedirect("dashboard_gerente.jsp?status=error");
             }
         } 
-        // CASO B: VIENE DEL GERENTE GENERAL (ACEPTAR O RECHAZAR)
-        else {
+        // CASO B: VIENE DEL GERENTE GENERAL (ACEPTAR O RECHAZAR PENDIENTES)
+        else if ("aceptar".equals(accion) || "rechazar".equals(accion)) {
             int id = Integer.parseInt(request.getParameter("id"));
             String nuevoEstado = accion.equals("aceptar") ? "Activo" : "Rechazado";
             
             boolean OK = empleadoDAO.actualizarEstado(id, nuevoEstado);
             response.sendRedirect("dashboard_general.jsp?update=" + (OK ? "success" : "error"));
+        }
+        else {
+             // Si entra sin acción, lo mandamos al inicio
+             response.sendRedirect("index.html");
         }
     }
 

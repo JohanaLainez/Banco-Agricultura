@@ -34,14 +34,18 @@ public class LoginServlet extends HttpServlet {
             String rol = empleado.getRol();
             
             if (rol.equals("Gerente General")) {
-                response.sendRedirect("dashboard_general.jsp");
-            } else if (rol.equals("Gerente de Sucursal")) {
-                response.sendRedirect("dashboard_gerente.jsp");
-            } else if (rol.equals("Cajero")) {
-                response.sendRedirect("dashboard_cajero.jsp");
-            } else {
-                response.sendRedirect("index.html?error=rol_no_reconocido");
-            }
+    response.sendRedirect("dashboard_general.jsp");
+} else if (rol.equals("Gerente de Sucursal")) {
+    response.sendRedirect("dashboard_gerente.jsp");
+} else if (rol.equals("Cajero")) {
+    response.sendRedirect("dashboard_cajero.jsp");
+} else if (rol.equals("Dependiente")) {
+    response.sendRedirect("dashboard_dependiente.jsp");
+} else if (rol.equals("Cliente")) { // <--- ¡AQUÍ ESTÁ EL DEL CLIENTE!
+    response.sendRedirect("dashboard_cliente.jsp");
+} else {
+    response.sendRedirect("index.html?error=rol_no_reconocido");
+}
             
         } else {
             // 5. Si los datos están erróneos o el usuario está pendiente, lo regresa al login
